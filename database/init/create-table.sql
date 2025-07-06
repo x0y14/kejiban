@@ -1,5 +1,4 @@
-create database if not exists redditclone;
-use redditclone;
+use kejiban;
 
 create table accounts (
     id binary(16) not null,
@@ -24,7 +23,7 @@ create table credentials (
 create table profiles (
     account_id binary(16) not null,
     display_name varchar(50) not null,
-    bio text not null default "",
+    bio text not null,
     created_at datetime not null default current_timestamp,
     updated_at datetime not null default current_timestamp on update current_timestamp,
 
