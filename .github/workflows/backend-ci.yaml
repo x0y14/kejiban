@@ -1,0 +1,26 @@
+name: Backend CI
+
+on: [push]
+
+defaults:
+  run:
+    working-directory: ./backend
+
+jobs:
+    ruff-lint:
+        runs-on: ubuntu-latest
+        steps:
+          - uses: actions/checkout@v4
+          - uses: astral-sh/ruff-action@v3
+    pytest-test:
+        runs-on: ubuntu-latest
+        steps:
+          - uses: actions/checkout@v4
+          - uses: astral-sh/setup-uv@v5
+            with:
+              enable-cache: true
+          - run: uv python install
+          - run: uv sync --locked --all-extras --dev
+          - run: uv run pytest
+
+
