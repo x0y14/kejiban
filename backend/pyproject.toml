@@ -9,3 +9,18 @@ dependencies = [
     "pytest>=8.4.1",
     "ruff>=0.12.2",
 ]
+
+[tool.ruff]
+line-length = 119
+lint.select = [
+    "E",   # pycodestyle
+]
+lint.ignore = []
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.pytest.ini_options]
+pythonpath = [
+  "."
+]
